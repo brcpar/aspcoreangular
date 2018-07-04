@@ -6,20 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule  } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule } from '@angular/material';
 import { JobTableComponent } from './JobTable/job-table.component';
+import { DurationPipe } from './Job/duration.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    JobTableComponent
+    JobTableComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule 
+    MatButtonModule, MatCheckboxModule, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

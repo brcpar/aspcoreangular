@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HangfireData;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HangfireDashboard.Controllers
 {
     [Route("api/[controller]")]
-    public class JobController : Controller
+    public class JobController : BaseAPIController
     {
+        public JobController(IHangfireSack sack) : base(sack) { }
+
         [HttpGet]
         public IActionResult GetJobs([FromQuery]string query, [FromQuery]int pageNumber)
         {
@@ -29,8 +32,16 @@ namespace HangfireDashboard.Controllers
             if (!string.IsNullOrEmpty(query))
                 dataSet = dataSet.Where(d => d.Name.Contains(query)).ToList();
 
-            var retObj = new {items = dataSet.Skip(pageNumber * 5).Take(5), total_count = dataSet.Count};
+            var retObj = new { items = dataSet.Skip(pageNumber * 5).Take(5), total_count = dataSet.Count };
             return Ok(retObj);
+        }
+
+        [HttpPost]
+        public IActionResult GetJobs([FromBody]JobSearchRequest request)
+        {
+            var jobSearch = new HangfireJobQuery(_sack);
+            var jobs = jobSearch.SearchJobs(request.Page * request.PerPage, request.PerPage, request.Term, request.Processor, request.Status ?? "Succeeded");
+            return Ok(new { items = jobs, total_count = jobs.FirstOrDefault()?.Total ?? 0 });
         }
     }
 
@@ -40,5 +51,14 @@ namespace HangfireDashboard.Controllers
         public int JobId { get; set; }
         public string Status { get; set; }
         public string Symbol { get; set; }
+    }
+
+    public class JobSearchRequest
+    {
+        public string Term { get; set; }
+        public int Page { get; set; }
+        public string Status { get; set; }
+        public string Processor { get; set; }
+        public int PerPage { get; set; }
     }
 }

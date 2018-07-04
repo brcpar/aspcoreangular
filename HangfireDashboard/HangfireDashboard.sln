@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangfireDashboard", "HangfireDashboard\HangfireDashboard.csproj", "{70170F67-52AA-41E6-8965-998634AE5402}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangfireDashboard", "HangfireDashboard\HangfireDashboard.csproj", "{70170F67-52AA-41E6-8965-998634AE5402}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangfireData", "HangfireData\HangfireData.csproj", "{0AEF560E-DB7F-4AF9-8D76-BAC70EAF29B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{70170F67-52AA-41E6-8965-998634AE5402}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70170F67-52AA-41E6-8965-998634AE5402}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70170F67-52AA-41E6-8965-998634AE5402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AEF560E-DB7F-4AF9-8D76-BAC70EAF29B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AEF560E-DB7F-4AF9-8D76-BAC70EAF29B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AEF560E-DB7F-4AF9-8D76-BAC70EAF29B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AEF560E-DB7F-4AF9-8D76-BAC70EAF29B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

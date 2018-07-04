@@ -17,6 +17,12 @@
 
   <ItemGroup>
     <Folder Include="HangfireClient\src\app\JobTable\" />
+    <Folder Include="HangfireClient\src\app\Core\" />
+    <Folder Include="HangfireClient\src\app\Job\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HangfireData\HangfireData.csproj" />
   </ItemGroup>
 
 </Project>
